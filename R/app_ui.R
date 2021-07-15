@@ -19,7 +19,6 @@ app_ui <- function(request) {
         value = 100
       ),
       plotOutput(outputId = "hist")
-
     )
   )
 }
