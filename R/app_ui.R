@@ -1,5 +1,3 @@
-library(ggplot2)
-
 #' The application User-Interface
 #'
 #' @param request Internal parameter for `{shiny}`.
@@ -7,6 +5,8 @@ library(ggplot2)
 #' @import shiny
 #' @noRd
 app_ui <- function(request) {
+
+  library(ggplot2)
 
   tagList(
     # Leave this function for adding external resources
@@ -44,6 +44,8 @@ golem_add_external_resources <- function(){
       path = app_sys('app/www'),
       app_title = 'shiny01'
     )
+
+
     # Add here other external resources
     # for example, you can add shinyalert::useShinyalert()
   )
