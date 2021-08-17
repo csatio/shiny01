@@ -22,4 +22,4 @@ ADD . /build_zone
 WORKDIR /build_zone
 RUN R -e 'remotes::install_local(upgrade="never")'
 RUN rm -rf /build_zone
-CMD R -e "options('shiny.port'=$PORT,shiny.host='0.0.0.0');asngolem::run_app()"
+CMD R -e "options('shiny.port'=$PORT,shiny.host='0.0.0.0');shiny01::run_app()"
