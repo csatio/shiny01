@@ -21,5 +21,5 @@ RUN mkdir /build_zone
 ADD . /build_zone
 WORKDIR /build_zone
 RUN R -e 'remotes::install_local(upgrade="never")'
-RUN rm -rf /build_zone
-CMD R -e "options('shiny.port'=$PORT,shiny.host='0.0.0.0');shiny01::run_app()"
+EXPOSE 80
+CMD R -e "options('shiny.port'=80,shiny.host='0.0.0.0');shiny01::run_app()"
