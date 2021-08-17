@@ -1,3 +1,5 @@
+library(ggplot2)
+
 #' The application User-Interface
 #'
 #' @param request Internal parameter for `{shiny}`.
@@ -5,18 +7,17 @@
 #' @import shiny
 #' @noRd
 app_ui <- function(request) {
+
   tagList(
     # Leave this function for adding external resources
     golem_add_external_resources(),
     # Your application UI logic
     fluidPage(
-      "Histograma da distribuição normal",
-      sliderInput(
-        inputId = "num",
-        label = "Selecione o tamanho da amostra",
-        min = 1,
-        max = 10000,
-        value = 100
+      "Histograma diamonds",
+      selectInput(
+        inputId = "variavel",
+        label = "Selecione a variável",
+        choices = names(diamonds)
       ),
       plotOutput(outputId = "hist")
     )
