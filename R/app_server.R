@@ -39,8 +39,6 @@ app_server <- function( input, output, session ) {
   })
 
 
-
-
   output$preco <- renderText( v$preco)
 }
 
