@@ -9,10 +9,8 @@ libpq-dev \
 libssh2-1-dev \
 unixodbc-dev \
 libcurl4-openssl-dev \
-libssl-dev \
-git-core  libgit2-dev libicu-dev  make pandoc pandoc-citeproc && rm -rf /var/lib/apt/lists/*
+libssl-dev
 
-RUN echo "options(repos = c(CRAN = 'https://cran.rstudio.com/'), download.file.method = 'libcurl', Ncpus = 4)" >> /usr/local/lib/R/etc/Rprofile.site
 RUN R -e 'install.packages("remotes")'
 RUN Rscript -e 'remotes::install_version("glue",upgrade="never", version = "1.4.2")'
 RUN Rscript -e 'remotes::install_version("processx",upgrade="never", version = "3.5.2")'
