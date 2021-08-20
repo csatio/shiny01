@@ -18,6 +18,8 @@ RUN Rscript -e 'remotes::install_version("golem",upgrade="never", version = "0.3
 RUN Rscript -e 'remotes::install_version("ggplot2",upgrade="never", version = "3.3.3")'
 RUN Rscript -e 'remotes::install_version("DT",upgrade="never", version = "0.18")'
 RUN Rscript -e 'remotes::install_version("shinydashboard", version = "0.7.1")'
+RUN R -e 'install.packages("tidyverse")'
+RUN R -e 'install.packages("tidymodels")'
 RUN R -e 'install.packages("vip")'
 RUN R -e 'install.packages("jsonlite")'
 RUN R -e 'install.packages("workflows")'

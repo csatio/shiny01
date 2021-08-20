@@ -9,6 +9,8 @@ app_server <- function( input, output, session ) {
 
   library(ggplot2)
   library(rlang)
+  library(tidyverse)
+  library(tidymodels)
 
   #output$hist <- renderPlot({
   #  hist(diamonds[,input$variavel])
@@ -34,8 +36,24 @@ app_server <- function( input, output, session ) {
     y <- input$y
     z <- input$z
 
-    v$preco <- diamondprice(as.double(carat),cut,color,clarity,as.double(depth),
-                            as.double(table),as.double(x),as.double(y),as.double(z))
+    diamonds2 <- mutate(diamonds,price_log=log(price))
+    diamonds2 <- add_row(diamonds2,"carat" = as.double(carat),
+                         "cut" = cut,
+                         "color" = color,
+                         "clarity" =clarity,
+                         "depth" = as.double(depth),
+                         "table" = as.double(table),
+                         "x" = as.double(x),
+                         "y" = as.double(y),
+                         "z" = as.double(z),
+                         "price" = integer(1),
+                         "price_log" = 0.0)
+
+    diamonds_final_model<-readRDS('diamonds_final_model.rds')
+    diamonds_com_previsao <- mutate(diamonds2,price_pred = exp(predict(diamonds_final_model, new_data = diamonds2)$.pred))       #### exp para reverter o log
+
+    v$preco <- tail(diamonds_com_previsao,n=1)$price_pred
+
   })
 
 
@@ -43,22 +61,4 @@ app_server <- function( input, output, session ) {
 }
 
 
-diamondprice <- function(carat,cut,color,clarity,depth,table,x,y,z){
-  library(tidyverse)
-  library(tidymodels)
-  diamonds2 <- mutate(diamonds,price_log=log(price))
-  diamonds2 <- add_row(diamonds2,"carat" = as.double(carat),
-                       "cut" = cut,
-                       "color" = color,
-                       "clarity" =clarity,
-                       "depth" = as.double(depth),
-                       "table" = as.double(table),
-                       "x" = as.double(x),
-                       "y" = as.double(y),
-                       "z" = as.double(z),
-                       "price" = integer(1),
-                       "price_log" = 0.0)
-  diamonds_final_model<-readRDS('diamonds_final_model.rds')
-  diamonds_com_previsao <- mutate(diamonds2,price_pred = exp(predict(diamonds_final_model, new_data = diamonds2)$.pred))       #### exp para reverter o log
-  return(tail(diamonds_com_previsao,n=1)$price_pred)
-}
+
