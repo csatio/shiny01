@@ -12,15 +12,40 @@ app_ui <- function(request) {
     # Leave this function for adding external resources
     golem_add_external_resources(),
     # Your application UI logic
-    fluidPage(
-      "Histograma diamonds",
-      selectInput(
-        inputId = "variavel",
-        label = "Selecione a variável",
-        choices = names(diamonds)
-      ),
-      plotOutput(outputId = "hist")
+    dashboardHeader(title = "IMDB"),
+    dashboardSidebar(
+      sidebarMenu(
+        menuItem("Informações gerais", tabName = "info"),
+        menuItem("Orçamentos", tabName = "orcamentos"),
+        menuItem("Receitas", tabName = "receitas")
+      )
+    ),
+    dashboardBody(
+      tabItems(
+        tabItem(
+          tabName = "info",
+          h1("Informações gerais dos filmes"),
+          fluidPage(
+            "Histograma diamonds",
+            selectInput(
+              inputId = "variavel",
+              label = "Selecione a variável",
+              choices = names(diamonds)
+            ),
+            plotOutput(outputId = "hist")
+          )
+        ),
+        tabItem(
+          tabName = "orcamentos",
+          h1("Analisando os orçamentos")
+        ),
+        tabItem(
+          tabName = "receitas",
+          h1("Analisando as receitas")
+        )
+      )
     )
+
   )
 }
 
@@ -42,7 +67,7 @@ golem_add_external_resources <- function(){
     favicon(),
     bundle_resources(
       path = app_sys('app/www'),
-      app_title = 'shiny01'
+      app_title = 'Claudio Satio Amadatsu'
     )
 
 
