@@ -1,33 +1,47 @@
+library(shinydashboard)
 #' The application User-Interface
 #'
 #' @param request Internal parameter for `{shiny}`.
 #'     DO NOT REMOVE.
 #' @import shiny
-#' @import shinydashboard
 #' @noRd
 app_ui <- function(request) {
 
   library(ggplot2)
 
-  tagList(
-    # Leave this function for adding external resources
-    golem_add_external_resources(),
-    # Your application UI logic
-    dashboardHeader(title = "IMDB"),
-    dashboardSidebar(
-      sidebarMenu(
-        menuItem("Informações gerais", tabName = "info"),
-        menuItem("Orçamentos", tabName = "orcamentos"),
-        menuItem("Receitas", tabName = "receitas")
-      )
-    ),
-    dashboardBody(
-      tabItems(
-        tabItem(
-          tabName = "info",
-          h1("Informações gerais dos filmes"),
+  dashboardPage(skin = "yellow",
+  dashboardHeader(title = "Tópicos"),
+  dashboardSidebar(
+    sidebarMenu(
+      menuItem("Shiny - Base Diamonds", tabName = "shinydiamonds")
+
+    )
+  ),
+  dashboardBody(
+    tags$head(tags$style(HTML('
+      .content-wrapper {
+        background-color: #fff;
+      }
+      .skin-yellow .main-sidebar {
+                              background-color: #fff;
+                              color: #000000;
+      }
+      .skin-yellow .main-sidebar .sidebar .sidebar-menu .active a{
+                              background-color: #fff;
+                              color: #000000;
+                              }
+    '))),
+    tabItems(
+      tabItem(
+        tabName = "shinydiamonds",
+        h1("Estudo da base Diamonds com Shiny"),
+        tagList(
+          # Leave this function for adding external resources
+          golem_add_external_resources(),
+          # Your application UI logic
+
           fluidPage(
-            "Histograma diamonds",
+            "Histogramas diamonds",
             selectInput(
               inputId = "variavel",
               label = "Selecione a variável",
@@ -35,19 +49,14 @@ app_ui <- function(request) {
             ),
             plotOutput(outputId = "hist")
           )
-        ),
-        tabItem(
-          tabName = "orcamentos",
-          h1("Analisando os orçamentos")
-        ),
-        tabItem(
-          tabName = "receitas",
-          h1("Analisando as receitas")
         )
       )
+      )
     )
-
   )
+
+
+
 }
 
 #' Add external Resources to the Application
@@ -68,7 +77,7 @@ golem_add_external_resources <- function(){
     favicon(),
     bundle_resources(
       path = app_sys('app/www'),
-      app_title = 'Claudio Satio Amadatsu'
+      app_title = 'Claudio Satio - Analytics'
     )
 
 
