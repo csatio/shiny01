@@ -1,4 +1,3 @@
-library(shinydashboard)
 #' The application User-Interface
 #'
 #' @param request Internal parameter for `{shiny}`.
@@ -8,6 +7,7 @@ library(shinydashboard)
 app_ui <- function(request) {
 
   library(ggplot2)
+  library(shinydashboard)
 
   dashboardPage(skin = "yellow",
   dashboardHeader(title = "Tópicos"),
@@ -39,22 +39,55 @@ app_ui <- function(request) {
           # Leave this function for adding external resources
           golem_add_external_resources(),
           # Your application UI logic
-
-          fluidPage(
-            "Histogramas diamonds",
-            selectInput(
-              inputId = "variavel",
-              label = "Selecione a variável",
-              choices = names(diamonds)
+          fluidRow(
+            column(7,
+                   fluidPage(
+                     "Histogramas diamonds",
+                     selectInput(
+                       inputId = "variavel",
+                       label = "Selecione a variável",
+                       choices = names(diamonds)
+                     ),
+                     plotOutput(outputId = "hist")
+                   )
             ),
-            plotOutput(outputId = "hist")
-          )
+            column(5,
+                   fluidPage(
+                     "Executar o modelo",
+                     numericInput("carat", "carat:", 0.3, min = 0.001, max = 5),
+                     selectInput(
+                       inputId = "cut",
+                       label = "cut",
+                       choices = unique(diamonds$cut)
+                     ),
+                     selectInput(
+                       inputId = "color",
+                       label = "color",
+                       choices = unique(diamonds$color)
+                     )
+                     ,
+                     selectInput(
+                       inputId = "clarity",
+                       label = "clarity",
+                       choices = unique(diamonds$clarity)
+                     ),
+                     numericInput("depth", "depth:", 62, min = 40, max = 80),
+                     numericInput("table", "table:", 56, min = 40, max = 80),
+                     numericInput("x", "x:", 5, min = 0, max = 10),
+                     numericInput("y", "y:", 5, min = 0, max = 10),
+                     numericInput("z", "z:", 5, min = 0, max = 10),
+                     actionButton(inputId = "executar", label = "Executar"),
+                     fluidRow(p("")),
+                     "Preço estimado:",
+                     textOutput("preco")
+                   )
+            )
         )
       )
       )
     )
   )
-
+  )
 
 
 }
