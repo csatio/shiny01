@@ -17,6 +17,7 @@ RUN Rscript -e 'remotes::install_version("rmarkdown",upgrade="never", version = 
 RUN Rscript -e 'remotes::install_version("golem",upgrade="never", version = "0.3.1")'
 RUN Rscript -e 'remotes::install_version("ggplot2",upgrade="never", version = "3.3.3")'
 RUN Rscript -e 'remotes::install_version("DT",upgrade="never", version = "0.18")'
+RUN Rscript -e 'remotes::install_version("shinydashboard", version = "0.7.1")'
 RUN mkdir /build_zone
 ADD . /build_zone
 WORKDIR /build_zone
