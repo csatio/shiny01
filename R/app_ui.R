@@ -18,7 +18,8 @@ app_ui <- function(request) {
     )
   ),
   dashboardBody(
-    tags$head(tags$style(HTML('
+    tags$head(tags$style(HTML("
+    @import url('https://fonts.googleapis.com/css?family=Open+Sans');
       .content-wrapper {
         background-color: #fff;
       }
@@ -30,7 +31,7 @@ app_ui <- function(request) {
                               background-color: #fff;
                               color: #000000;
                               }
-    '))),
+    "))),
     tabItems(
       tabItem(
         tabName = "shinydiamonds",

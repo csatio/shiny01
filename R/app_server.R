@@ -49,16 +49,16 @@ app_server <- function( input, output, session ) {
                          "price" = integer(1),
                          "price_log" = 0.0)
 
-    #diamonds_final_model<-readRDS('diamonds_final_model.rds')
-    #diamonds_com_previsao <- mutate(diamonds2,price_pred = exp(predict(diamonds_final_model, new_data = diamonds2)$.pred))       #### exp para reverter o log
+    diamonds_final_model<-readRDS('www/diamonds_final_model.rds')
+    diamonds_com_previsao <- mutate(diamonds2,price_pred = exp(predict(diamonds_final_model, new_data = diamonds2)$.pred))       #### exp para reverter o log
 
-    #v$preco <- tail(diamonds_com_previsao,n=1)$price_pred
+    v$preco <- tail(diamonds_com_previsao,n=1)$price_pred
 
   })
 
 
-  #output$preco <- renderText( v$preco)
-  output$preco <- renderText("Em manutenção.")
+  output$preco <- renderText( v$preco)
+  #output$preco <- renderText("Em manutenção.")
 }
 
 
