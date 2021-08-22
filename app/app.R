@@ -1,5 +1,6 @@
 library(shiny)
 library(shinydashboard)
+library(shiny)
 
 ui <- dashboardPage(skin = "yellow",
                     dashboardHeader(title = "Tópicos"),
