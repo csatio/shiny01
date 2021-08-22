@@ -12,18 +12,13 @@ app_server <- function( input, output, session ) {
   library(tidyverse)
   library(tidymodels)
 
-
   #output$hist <- renderPlot({
   #  hist(diamonds[,input$variavel])
 
   output$hist <- renderPlot({
+    x = parse_quo(input$variavel, env = caller_env())
+    ggplot(diamonds, aes(!!x))+ geom_bar(fill = "#0073C2FF")
 
-    if (class(unlist(diamonds[,input$variavel]))=="numeric"){
-      hist(as.numeric(unlist(diamonds[,input$variavel])),col="#0073C2FF",main=input$variavel,xlab=input$variavel)
-    } else {
-      x = parse_quo(input$variavel, env = caller_env())
-      ggplot(diamonds, aes(!!x))+ geom_bar(fill = "#0073C2FF")
-    }
 
   })
 
