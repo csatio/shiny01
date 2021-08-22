@@ -5,10 +5,10 @@ app_ui <- dashboardPage(skin = "yellow",
                 dashboardHeader(title = "Tópicos"),
                 dashboardSidebar(
                   sidebarMenu(
-                    menuItem("Shiny - Base Diamonds", tabName = "shinydiamonds"),
+                    menuItem("Shiny - Base Diamonds", tabName = "shinydiamonds")
 
-                    menuItem("RMarkdown - DC x Marvel", tabName = "dcmarvelhtml"
-                    )
+                    #,menuItem("RMarkdown - DC x Marvel", tabName = "dcmarvelhtml"
+                    #)
 
                   )
                 ),
