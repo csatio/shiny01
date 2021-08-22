@@ -2,7 +2,7 @@
 title: "Treinando R Markdown"
 output:
   prettydoc::html_pretty:
-    theme: cayman
+    theme: architect
     highlight: github
 ---
 
