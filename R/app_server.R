@@ -12,13 +12,18 @@ app_server <- function( input, output, session ) {
   library(tidyverse)
   library(tidymodels)
 
+
   #output$hist <- renderPlot({
   #  hist(diamonds[,input$variavel])
 
   output$hist <- renderPlot({
-    x = parse_quo(input$variavel, env = caller_env())
-    ggplot(diamonds, aes(!!x))+ geom_bar(fill = "#0073C2FF")
 
+    if (class(unlist(diamonds[,input$variavel]))=="numeric"){
+      hist(as.numeric(unlist(diamonds[,input$variavel])),col="#0073C2FF",main=input$variavel,xlab=input$variavel)
+    } else {
+      x = parse_quo(input$variavel, env = caller_env())
+      ggplot(diamonds, aes(!!x))+ geom_bar(fill = "#0073C2FF")
+    }
 
   })
 
@@ -49,10 +54,19 @@ app_server <- function( input, output, session ) {
                          "price" = integer(1),
                          "price_log" = 0.0)
 
-    diamonds_final_model<-readRDS('www/diamonds_final_model.rds')
-    diamonds_com_previsao <- mutate(diamonds2,price_pred = exp(predict(diamonds_final_model, new_data = diamonds2)$.pred))       #### exp para reverter o log
+    tryCatch({
 
-    v$preco <- tail(diamonds_com_previsao,n=1)$price_pred
+        diamonds_final_model<-readRDS('diamonds_final_model.rds')
+        diamonds_com_previsao <- mutate(diamonds2,price_pred = exp(predict(diamonds_final_model, new_data = diamonds2)$.pred))       #### exp para reverter o log
+
+        v$preco <- tail(diamonds_com_previsao,n=1)$price_pred
+    }, error=function(e) {
+
+      v$preco <- e$message
+    }, warning=function(w) {
+      #browser()
+      v$preco <- w$message
+    })
 
   })
 

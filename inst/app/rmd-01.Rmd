@@ -1,0 +1,58 @@
+---
+title: "Treinando R Markdown"
+output:
+  prettydoc::html_pretty:
+    theme: cayman
+    highlight: github
+---
+
+
+```{r , echo = FALSE, message=FALSE }
+library(vip)
+library(tidymodels)
+library(DBI)
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## R Markdown
+
+**DC**
+
+```{r,out.width=200}
+knitr::include_graphics("15-153902_superman-dc-comics-logo-comic-book-the-new.png") 
+```
+
+
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r , message=FALSE, warning=FALSE }
+library(tidyverse)
+library(readxl)
+dc <- read.csv(file = 'dc-wikia-data.csv', stringsAsFactors = TRUE)
+top10 <- dc %>% slice_max(order_by = APPEARANCES, n = 10)
+```
+
+**DC TOP 10 por aparições**
+
+```{r , message=FALSE, warning=FALSE}
+knitr::kable(top10)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+plt.bar(r.top10.name, r.top10.APPEARANCES)
+plt.show()
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

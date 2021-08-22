@@ -1,0 +1,28 @@
+---
+title: "Treinando R Markdown"
+output:
+  prettydoc::html_pretty:
+    theme: cayman
+    highlight: github
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# RMarkdown-1
+
+Relatórios Marvel x DC
+
+- [DC](rmd-01.html)
+
+- [Marvel](rmd-02.html)
+
+<!-- badges: start -->
+<!-- badges: end -->
+
