@@ -15,6 +15,13 @@ RUN apt-get update && apt-get install -y \
 RUN R -e "install.packages('shinydashboard', repos='http://cran.rstudio.com/')"
 RUN R -e "install.packages('ggplot2')"
 RUN R -e "install.packages('rlang')"
+RUN R -e 'install.packages("tidymodels")'
+RUN R -e 'install.packages("vip")'
+RUN R -e 'install.packages("jsonlite")'
+RUN R -e 'install.packages("workflows")'
+RUN R -e 'install.packages("magrittr")'
+RUN R -e 'install.packages("recipes")'
+RUN R -e 'install.packages("glmnet")'
 # Copy configuration files into the Docker image
 COPY shiny-server.conf  /etc/shiny-server/shiny-server.conf
 COPY /app /srv/shiny-server/

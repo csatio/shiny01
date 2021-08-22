@@ -1,6 +1,8 @@
 library(shinydashboard)
 library(ggplot2)
 library(rlang)
+library(tidyverse)
+library(tidymodels)
 
 app_ui <- dashboardPage(skin = "yellow",
                 dashboardHeader(title = "Tópicos"),
