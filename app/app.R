@@ -93,10 +93,6 @@ app_ui <- dashboardPage(skin = "yellow",
 app_server <- function( input, output, session ) {
   # Your application server logic
 
-  library(ggplot2)
-  library(rlang)
-  library(tidyverse)
-  library(tidymodels)
 
   #output$hist <- renderPlot({
   #  hist(diamonds[,input$variavel])
