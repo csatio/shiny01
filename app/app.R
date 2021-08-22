@@ -8,10 +8,10 @@ app_ui <- dashboardPage(skin = "yellow",
                 dashboardHeader(title = "Tópicos"),
                 dashboardSidebar(
                   sidebarMenu(
-                    menuItem("Shiny - Base Diamonds", tabName = "shinydiamonds")
+                    menuItem("Shiny - Base Diamonds", tabName = "shinydiamonds"),
 
-                    #,menuItem("RMarkdown - DC x Marvel", tabName = "dcmarvelhtml"
-                    #)
+                    menuItem("RMarkdown - DC x Marvel", tabName = "dcmarvelhtml"
+                    )
 
                   )
                 ),
@@ -81,11 +81,11 @@ app_ui <- dashboardPage(skin = "yellow",
                           )
                         )
                       )
-                    )
-                    # ,tabItem(tabName = "dcmarvelhtml",
-                    #           fluidPage(
-                    #             htmltools::tags$iframe(src = "dc_marvel.html", width = '100%',  height = 1000,  style = "border:none;"))
-                    # )
+                    ),
+                    tabItem(tabName = "dcmarvelhtml",
+                               fluidPage(
+                                 htmltools::tags$iframe(src = "www/dc_marvel.html", width = '100%',  height = 1000,  style = "border:none;"))
+                     )
                   )
                 )
 
