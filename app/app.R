@@ -1,6 +1,9 @@
 library(shiny)
 library(shinydashboard)
-library(shiny)
+library(ggplot2)
+library(rlang)
+library(tidyverse)
+library(tidymodels)
 
 ui <- dashboardPage(skin = "yellow",
                     dashboardHeader(title = "Tópicos"),
@@ -94,10 +97,7 @@ ui <- dashboardPage(skin = "yellow",
 server <- function( input, output ) {
   # Your application server logic
 
-  library(ggplot2)
-  library(rlang)
-  library(tidyverse)
-  library(tidymodels)
+
 
   #output$hist <- renderPlot({
   #  hist(diamonds[,input$variavel])
