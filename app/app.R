@@ -78,10 +78,11 @@ app_ui <- dashboardPage(skin = "yellow",
                           )
                         )
                       )
-                    ),tabItem(tabName = "dcmarvelhtml",
-                              fluidPage(
-                                htmltools::tags$iframe(src = "dc_marvel.html", width = '100%',  height = 1000,  style = "border:none;"))
                     )
+                    # ,tabItem(tabName = "dcmarvelhtml",
+                    #           fluidPage(
+                    #             htmltools::tags$iframe(src = "dc_marvel.html", width = '100%',  height = 1000,  style = "border:none;"))
+                    # )
                   )
                 )
 
