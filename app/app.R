@@ -4,17 +4,23 @@ library(rlang)
 library(tidyverse)
 library(tidymodels)
 
-app_ui <- dashboardPage(skin = "yellow",
+app_ui <- dashboardPage(skin = "yellow",title = "Claudio Satio - ASN.ROCKS",
                 dashboardHeader(title = "Tópicos"),
                 dashboardSidebar(
                   sidebarMenu(
+                    menuItem("Introdução", tabName = "introhtml"),
+
                     menuItem("Shiny - Base Diamonds", tabName = "shinydiamonds"),
 
                     menuItem("RMarkdown - DC x Marvel", tabName = "dcmarvelhtml"),
 
                     menuItem("Análise Cluster", tabName = "clusterhtml"),
 
-                    menuItem("Séries Temporais", tabName = "serieshtml")
+                    menuItem("Séries Temporais", tabName = "serieshtml"),
+
+                    menuItem("Text Mining", tabName = "textmininghtml"),
+
+                    menuItem("Geoestatística", tabName = "geohtml")
                   )
                 ),
                 dashboardBody(
@@ -33,6 +39,10 @@ app_ui <- dashboardPage(skin = "yellow",
                               }
     "))),
                   tabItems(
+                    tabItem(tabName = "introhtml",
+                            fluidPage(
+                              htmltools::tags$iframe(src = "intro.html", width = '100%',  height = 1000,  style = "border:none;"))
+                    ),
                     tabItem(
                       tabName = "shinydiamonds",
                       h1("Estudo da base Diamonds com Shiny"),
@@ -95,6 +105,14 @@ app_ui <- dashboardPage(skin = "yellow",
                     tabItem(tabName = "serieshtml",
                             fluidPage(
                               htmltools::tags$iframe(src = "series.html", width = '100%',  height = 1000,  style = "border:none;"))
+                    ),
+                    tabItem(tabName = "textmininghtml",
+                            fluidPage(
+                              htmltools::tags$iframe(src = "textmining.html", width = '100%',  height = 1000,  style = "border:none;"))
+                    ),
+                    tabItem(tabName = "geohtml",
+                            fluidPage(
+                              htmltools::tags$iframe(src = "geo.html", width = '100%',  height = 1000,  style = "border:none;"))
                     )
                   )
                 )

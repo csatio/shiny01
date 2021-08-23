@@ -38,16 +38,19 @@ Características dos grupos:
 **Grupo 1: 633 locais**
 
 Bom nos produtos A e C
+
 Baixo nos produtos B, D e E
 
 **Grupo 2: 1154 locais**
 
 Bom nos produtos A, B e C
+
 Baixo nos produtos D e E
 
 **Grupo 3: 610 locais**
 
 Bom nos produtos A, B, C e E
+
 Baixo no produto D
 
 **Grupo 4: 6671 locais**

@@ -1,0 +1,86 @@
+---
+title: "Claudio Satio Amadatsu"
+output:
+  prettydoc::html_pretty:
+    theme: architect
+    highlight: github
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+Trabalhos e cases -  Curso DATA SCIENCE ANALYTICS -  ASN.ROCKS
+
+Alguns dos trabalhos e cases desenvolvidos durante o curso
+
+Período: Abril/2020 a Outubro/2021 - Carga horária: 450h
+
+***
+
+• Nivelamento Teórico Estatístico
+
+• Introdução à Computação e Conceitos
+
+• Computação em nuvem
+
+
+•Introdução ao SQL
+
+• Introdução ao Python
+
+• Introdução ao R
+
+• Regressão Linear
+
+• Regressão Logística
+
+• Árvore de Decisão / Random Forest / Gradient Boosting
+
+• Análise Fatorial
+
+• Componentes Principais
+
+• Redes Neurais / Deep Learning
+
+• Support Vector Machine
+
+• Monetização de algoritmos
+
+• Incremental Response Model
+
+• Aplicações em Crédito
+
+• Monitoramento de Modelos
+
+• Análise de Cluster
+
+• Modelagem Multinível
+
+• Séries Temporais
+
+• Otimização
+
+• Text Mining
+
+• Geoestatística
+
+• Social Network Analysis (SNA)
+
+• Business Intelligence (BI)
+
+• Criação de WebApp
+
+• Lei Geral de Proteção de Dados 
+
+[ASN.Rocks](https://asn.rocks/)
+
+
+<!-- badges: start -->
+<!-- badges: end -->
+
