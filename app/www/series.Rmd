@@ -1,9 +1,6 @@
 ---
 title: "Case - Séries temporais"
-output:
-  prettydoc::html_pretty:
-    theme: architect
-    highlight: github
+output: html_document
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -35,7 +32,7 @@ Abril/2021
 
   Indicação se a data é dia de pagamento, dia de vale ou feriado
 
-```{r,out.width=600 , echo = FALSE, message=FALSE }
+```{r,out.width=800 , echo = FALSE, message=FALSE }
 knitr::include_graphics("series_distr_vendas.png") 
 ```
 

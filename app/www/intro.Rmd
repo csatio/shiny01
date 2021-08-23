@@ -1,9 +1,7 @@
 ---
 title: "Claudio Satio Amadatsu"
-output:
-  prettydoc::html_pretty:
-    theme: architect
-    highlight: github
+output: html_document
+
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -15,7 +13,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-Trabalhos e cases -  Curso DATA SCIENCE ANALYTICS -  ASN.ROCKS
+### Trabalhos e cases -  Curso DATA SCIENCE ANALYTICS -  ASN.ROCKS
 
 Alguns dos trabalhos e cases desenvolvidos durante o curso
 
